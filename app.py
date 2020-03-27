@@ -4,7 +4,7 @@ import torch
 from flask import Flask, jsonify, request
 import requests
 import io
-import transform
+import torchvision.transforms as transform
 
 app = Flask(__name__)
 

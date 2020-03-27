@@ -1,0 +1,7 @@
+requests==2.18.4
+torchvision==0.5.0
+numpy==1.17.3
+Flask==1.1.1
+gunicorn==19.9.0
+https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp37-cp37m-linux_x86_64.whl
+Pillow==7.0.0

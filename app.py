@@ -26,6 +26,7 @@ def transform_image(image_bytes):
 
 def get_prediction(image_bytes):
     tensor = transform_image(image_bytes=image_bytes)
+    model.eval()
     outputs = model(tensor)
     _, pred = outputs.max(1)
     return pred.item()

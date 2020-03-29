@@ -50,4 +50,5 @@ def predict():
             f.write(base64.decodebytes(canvas.encode()))
             f.close()
         character = get_prediction("./canvas.png")
+        print(character)
         return jsonify({"alphabet": character})

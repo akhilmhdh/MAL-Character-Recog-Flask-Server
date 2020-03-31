@@ -13,7 +13,7 @@ class Net(nn.Module):
         self.pool = nn.MaxPool2d(2, 2)
         # linear layer
         # output volume (W-F+2P)/s+1
-        self.fc1 = nn.Linear(64*4*4, 500)
+        self.fc1 = nn.Linear(64 * 28 * 28, 500)
         self.fc2 = nn.Linear(500, 48)
         # adding dropout layer
         self.dropout = nn.Dropout(0.25)
@@ -23,7 +23,7 @@ class Net(nn.Module):
         x = self.pool(F.relu(self.conv2(x)))
         x = self.pool(F.relu(self.conv3(x)))
         # flatten for FC network
-        x = x.view(-1, 64*4*4)
+        x = x.view(-1, 64 * 28 * 28)
         x = self.dropout(x)
         x = self.dropout(F.relu(self.fc1(x)))
         x = self.fc2(x)

@@ -12,7 +12,7 @@ import base64
 app = Flask(__name__)
 CORS(app)
 
-model_dict = torch.load('model/malayalamOCR.pt',
+model_dict = torch.load('model/malayalamOCRv2.pt',
                         map_location=lambda storage, loc: storage)
 model = Net()
 model.load_state_dict(model_dict["model"])
@@ -21,7 +21,8 @@ model.load_state_dict(model_dict["model"])
 def transform_image(image_bytes):
     transformations = transform.Compose([
         transform.Grayscale(1),
-        transform.Resize(32),
+        transform.Resize(255),
+        transform.CenterCrop(224),
         transform.ToTensor(),
         transform.Normalize([0.5], [0.5])
     ])

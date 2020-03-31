@@ -12,7 +12,7 @@ import base64
 app = Flask(__name__)
 CORS(app)
 
-model_dict = torch.load('model/malayalamOCRv2.pt',
+model_dict = torch.load('model/malayalamOCR.pt',
                         map_location=lambda storage, loc: storage)
 model = Net()
 model.load_state_dict(model_dict["model"])

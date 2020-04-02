@@ -1,30 +1,38 @@
 from network import Net
 from PIL import Image
 import torch
+from torch import nn
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import requests
 import io
 from PIL import Image
-import torchvision.transforms as transform
+from torchvision import transforms, models
 import base64
 
 app = Flask(__name__)
 CORS(app)
 
-model_dict = torch.load('model/malayalamOCR.pt',
+model_dict = torch.load('model/malayalamOCRv3Resnet.pt',
                         map_location=lambda storage, loc: storage)
-model = Net()
+
+model = models.resnet50(pretrained=True)
+for param in model.parameters():
+    param.requires_grad = False
+
+model.fc = nn.Sequential(nn.Linear(2048, 512), nn.ReLU(), nn.Dropout(0.2),
+                         nn.Linear(512, 48), nn.LogSoftmax(dim=1))
+
 model.load_state_dict(model_dict["model"])
 
 
 def transform_image(image_bytes):
-    transformations = transform.Compose([
-        transform.Grayscale(1),
-        transform.Resize(255),
-        transform.CenterCrop(224),
-        transform.ToTensor(),
-        transform.Normalize([0.5], [0.5])
+    transformations = transforms.Compose([
+        transforms.Grayscale(3),
+        transforms.Resize(255),
+        transforms.CenterCrop(224),
+        transforms.ToTensor(),
+        transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
     ])
     image = Image.open(image_bytes)
     return transformations(image).unsqueeze(0)

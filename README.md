@@ -55,5 +55,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * Pytorch documentation 
 * Heroku simplicity loved it 
-* Some testing a
+* Some testing alpha
 

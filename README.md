@@ -48,9 +48,6 @@ Currently deployed to heroku using gunicorn. Requirement text is provided with t
 * [HEROKU CLI](https://devcenter.heroku.com/articles/heroku-cli) - Used for CI in Heroku 
 
 ## Contributors
-<table>
-<tr></tr>
-</table>
 
 ## License
 

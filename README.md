@@ -47,7 +47,7 @@ Currently deployed to heroku using gunicorn. Requirement text is provided with t
 * [TORCH](https://pytorch.org/) - The DL model behind it
 * [HEROKU CLI](https://devcenter.heroku.com/articles/heroku-cli) - Used for CI in Heroku 
 
-## Contributor
+## Contributors
 
 ## License
 

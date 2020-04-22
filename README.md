@@ -51,6 +51,8 @@ Currently deployed to heroku using gunicorn. Requirement text is provided with t
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
+## Contributors
+
 ## Acknowledgments
 
 * Pytorch documentation 

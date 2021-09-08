@@ -4,5 +4,5 @@ numpy==1.17.3
 Flask==1.1.1
 gunicorn==19.9.0
 https://download.pytorch.org/whl/cpu/torch-1.4.0%2Bcpu-cp37-cp37m-linux_x86_64.whl
-Pillow==6.2.2
+Pillow==8.3.2
 flask_cors==3.0.8
